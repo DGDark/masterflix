@@ -1,23 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>listarFilmes</title>
-</head>
-<body>
-<h1>Filmes</h1>
-<div th:each="filme : ${filmes}">
+    <head>
+        <meta charset="UTF-8">
+        <title>listarFilmes</title>
+    </head>
+    <body>
+        <h1>Filmes</h1>
+        <div th:each="filme : ${filmes}">
 
-    <div>
-        <p>Nome: <span th:text="${filme.nome}"></span></p>
-        <p>Genero: <span th:text="${filme.genero}"></span></p>
-        <p>Duração: <span th:text="${filme.duracao}"></span></p>
-        <p>Lançamento: <span th:text="${filme.dataLancamento}"></span></p>
-        <p>Sinopse: <span th:text="${filme.sinopse}"></span></p>
-        <p>Data de criação: <span th:text="${filme.dataCriacao}"></span></p>
+            <div>
+                <p><strong>Nome:</strong>
+                    <a th:href="@{'/filme/' + ${filme.nome}}">
+                        <span th:text="${filme.nome}"></span>
+                    </a>
+                </p>
+
+                <br>
+                    <img th:src="${filme.imagem}" whidth="40%">
+                </br>
+
+                <p>Nome: <span th:text="${filme.nome}"></span></p>
+                <p>Genero: <span th:text="${filme.genero}"></span></p>
+                <p>Duração: <span th:text="${filme.duracao}"></span></p>
+                <p>Lançamento: <span th:text="${filme.dataLancamento}"></span></p>
+                <p>Sinopse: <span th:text="${filme.sinopse}"></span></p>
+                <p>Data de criação: <span th:text="${filme.dataCriacao}"></span></p>
 
 
-    </div>
-</div>
-</body>
+            </div>
+        </div>
+    </body>
 </html>
